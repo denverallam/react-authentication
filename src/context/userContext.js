@@ -22,7 +22,6 @@ export const UserContextProvider = (props) => {
     userDetails && dispatch({ type: constant.LOGIN, payload: userDetails });
   }, []);
 
-  console.log(user);
 
   const login = (userData) => {
     let { email, password } = userData;
@@ -61,6 +60,7 @@ export const UserContextProvider = (props) => {
     // At least one digit, (?=.*?[0-9])
     // At least one special character, (?=.*?[#?!@$%^&*-])
     // Minimum eight in length .{8,} (with the anchors)
+
 
     let pattern =
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;

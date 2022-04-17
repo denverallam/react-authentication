@@ -26,7 +26,7 @@ const Register = () => {
     setIsPasswordFormatValid(isPasswordValid(e.target.value));
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -46,10 +46,15 @@ const Register = () => {
             password_confirmation: "",
           });
           alert("Successfully registered");
-          navigate('/login')
-
+          navigate("/login");
         } else {
-          alert("Wrong password format");
+          alert(`Password must be at least 8 characters and must contain: 
+At least one upper case letter,
+At least one lower case letter,
+At least one digit,
+At least one special character,`
+          );
+          // alert("Wrong password format");
         }
       } else {
         alert("Password does not match");
@@ -113,9 +118,7 @@ const Register = () => {
         onChange={changeHandler}
       />
       <button type="submit">Register</button>
-      <Link to="/login">
-        Login
-      </Link>
+      <Link to="/login">Login</Link>
     </form>
   );
 };

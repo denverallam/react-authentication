@@ -21,11 +21,9 @@ const Login = () => {
     login(user);
   };
 
-
   if(userContext.isAuthenticated && userContext.user){
     return <Navigate to="/" replace/>
   }
-
 
   return (
     <form className="form" onSubmit={submitHandler}>
