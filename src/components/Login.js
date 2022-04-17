@@ -3,12 +3,14 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/userContext";
 
 const Login = () => {
-  const { login, user: userContext } = useContext(UserContext);
+  const { login, user:userContext } = useContext(UserContext);
 
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
+
 
   const changeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -19,34 +21,35 @@ const Login = () => {
     login(user);
   };
 
-  if (userContext.isAuthenticated && userContext.user) {
-    return <Navigate to="/" replace />;
+
+  if(userContext.isAuthenticated && userContext.user){
+    return <Navigate to="/" replace/>
   }
 
+
   return (
-    <>
-    <h1>Login</h1>
-      <form className="form" onSubmit={submitHandler}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="form-input"
-          onChange={changeHandler}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="form-input"
-          onChange={changeHandler}
-          required
-        />
-        <button type="submit">Login</button>
-        <Link to="/register">Register</Link>
-      </form>
-    </>
+    <form className="form" onSubmit={submitHandler}>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        className="form-input"
+        onChange={changeHandler}
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        className="form-input"
+        onChange={changeHandler}
+        required
+      />
+      <button type="submit">Login</button>
+      <Link to="/register">
+        Register
+      </Link>
+    </form>
   );
 };
 
