@@ -27,6 +27,7 @@ const Login = () => {
 
   return (
     <form className="form" onSubmit={submitHandler}>
+      <h1>Login</h1>
       <input
         type="email"
         name="email"
@@ -43,7 +44,7 @@ const Login = () => {
         onChange={changeHandler}
         required
       />
-      <button type="submit">Login</button>
+      <button type="submit" className="button">Login</button>
       <Link to="/register">
         Register
       </Link>

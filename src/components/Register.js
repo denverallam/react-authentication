@@ -48,12 +48,12 @@ const Register = () => {
           alert("Successfully registered");
           navigate("/login");
         } else {
-          alert(`Password must be at least 8 characters and must contain: 
-At least one upper case letter,
-At least one lower case letter,
-At least one digit,
-At least one special character,`
-          );
+          alert(`Password must contain: 
+  At least 8 characters,
+  At least one upper case letter,
+  At least one lower case letter,
+  At least one digit,
+  At least one special character,`);
           // alert("Wrong password format");
         }
       } else {
@@ -66,23 +66,32 @@ At least one special character,`
 
   return (
     <form className="form" onSubmit={submitHandler}>
+      <h1>Register</h1>
+
       <input
         name="first_name"
         type="text"
         onChange={changeHandler}
+        className="form-input"
         placeholder="First Name"
         required
       />
       <input
         name="last_name"
         type="text"
+        className="form-input"
         onChange={changeHandler}
         placeholder="Last Name"
         required
       />
-      <select name="gender" onChange={changeHandler} required>
-        <option selected disabled>
-          -
+      <select
+        className="form-input"
+        name="gender"
+        onChange={changeHandler}
+        required
+      >
+        <option className="option-disabled" selected disabled>
+          Gender
         </option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
@@ -98,26 +107,28 @@ At least one special character,`
         type="email"
         onChange={changeHandler}
         placeholder="Email"
+        className="form-input"
         required
       />
       <input
         name="password"
         type="password"
         onBlur={validatePassword}
-        className={
-          user.password !== "" && (isPasswordFormatValid ? "valid" : "invalid")
-        }
+        className="form-input"
         placeholder="Password"
         onChange={changeHandler}
         required
       />
       <input
         name="password_confirmation"
+        className="form-input"
         type="password"
         placeholder="Confirm Password"
         onChange={changeHandler}
       />
-      <button type="submit">Register</button>
+      <button type="submit" className="button">
+        Register
+      </button>
       <Link to="/login">Login</Link>
     </form>
   );

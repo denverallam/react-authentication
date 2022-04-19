@@ -19,7 +19,7 @@ const Home = () => {
       <h1>
         Hello, {first_name} {last_name}!
       </h1>
-      <button onClick={logout}>Logout</button>
+      <button onClick={logout}  className="button">Logout</button>
     </div>
   ) : (
     <div>

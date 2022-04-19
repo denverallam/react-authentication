@@ -3,23 +3,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+*{
+  box-shadow: none;
 }
 
 .form{
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 400px;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 11px 11px 15px 3px rgb(150, 150, 150, 0.5);
 }
+
+h1{
+  color: #ff4081;
+}
+
 
 .form-input{
-
+  border: 0;
+  border-bottom: .5px solid lightgray;
+  padding: 10px;
+  margin: 10px;
+  color: rgb(36, 33, 33);
 }
 
-.valid{
-  background-color: green;
-
+select{
+  background: white !important;
 }
 
-.invalid{
-  background-color: red;
+.button{
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: #ff4081;
+  border: 0px;
+}
+
+a{
+  text-decoration: none;
+  color: #ff4081;
 }
