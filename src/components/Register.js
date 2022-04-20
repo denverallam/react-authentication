@@ -4,15 +4,13 @@ import UserContext from "../context/userContext";
 
 const Register = () => {
   const [user, setUser] = useState({
-    first_name: null,
-    last_name: null,
-    gender: null,
-    email: null,
-    password: null,
-    password_confirmation: null,
+    first_name: "",
+    last_name: "",
+    gender: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
   });
-
-  const [isPasswordFormatValid, setIsPasswordFormatValid] = useState(false);
 
   const { isPasswordValid, register, isEmailUsed } = useContext(UserContext);
 
@@ -20,11 +18,6 @@ const Register = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  //UI Validator
-  //check if password is valid
-  const validatePassword = (e) => {
-    setIsPasswordFormatValid(isPasswordValid(e.target.value));
-  };
 
   const navigate = useNavigate();
 
@@ -128,7 +121,6 @@ const Register = () => {
       <input
         name="password"
         type="password"
-        onBlur={validatePassword}
         className="form-input"
         placeholder="Password"
         onChange={changeHandler}
@@ -140,6 +132,7 @@ const Register = () => {
         type="password"
         placeholder="Confirm Password"
         onChange={changeHandler}
+        required
       />
       <button type="submit" className="button font">
         Register
