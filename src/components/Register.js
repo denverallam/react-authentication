@@ -90,7 +90,7 @@ const Register = () => {
         onChange={changeHandler}
         required
       >
-        <option className="option-disabled" selected disabled>
+        <option className="option-disabled" selected disabled hidden>
           Gender
         </option>
         <option value="Male">Male</option>
@@ -99,7 +99,7 @@ const Register = () => {
         <option value="Transgender">Transgender</option>
         <option value="Intersex">Intersex</option>
         <option value="Other">Other</option>
-        <option value="I prefer not to say">I prefer not to say</option>
+        <option value="Preferred not to say">I prefer not to say</option>
       </select>
 
       <input
@@ -126,10 +126,10 @@ const Register = () => {
         placeholder="Confirm Password"
         onChange={changeHandler}
       />
-      <button type="submit" className="button">
+      <button type="submit" className="button font">
         Register
       </button>
-      <Link to="/login">Login</Link>
+      <Link to="/login" className="font">Login</Link>
     </form>
   );
 };

@@ -44,8 +44,8 @@ const Login = () => {
         onChange={changeHandler}
         required
       />
-      <button type="submit" className="button">Login</button>
-      <Link to="/register">
+      <button type="submit" className="button font">Login</button>
+      <Link to="/register" className="font">
         Register
       </Link>
     </form>
