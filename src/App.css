@@ -63,9 +63,27 @@ a {
   font-size: 15px !important;
 }
 
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 50%;
+}
+
+.avatar {
+  vertical-align: middle;
+  height: 200px;
+  width: auto;
+  border-radius: 50%;
+}
 
 @media screen and (max-width: 600px) {
   .form {
     box-shadow: none;
+  }
+
+  .profile {
+    width: auto;
   }
 }

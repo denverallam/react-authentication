@@ -6,24 +6,32 @@ const Home = () => {
   const { user, logout } = useContext(UserContext);
 
   if (user.user) {
-    var { first_name, last_name } = user?.user;
+    var { first_name, last_name, gender } = user?.user;
   }
 
-
-  if(!user.isAuthenticated){
-    return <Navigate to="/login" />
+  if (!user.isAuthenticated) {
+    return <Navigate to="/login" />;
   }
 
   return user.isAuthenticated && user.user !== null ? (
-    <div>
+    <div className="profile">
+      <img
+        src={`/images/${gender === "Male" ? "male" : "female"}.png`}
+        alt="Avatar"
+        className="avatar"
+      />
       <h1>
-        Hello, {first_name} {last_name}!
+        {first_name} {last_name}
       </h1>
-      <button onClick={logout}  className="button">Logout</button>
+      <button onClick={logout} className="button">
+        Logout
+      </button>
     </div>
   ) : (
     <div>
-      <h1>You need to <Link to="/login">login</Link> first</h1>
+      <h1>
+        You need to <Link to="/login">login</Link> first
+      </h1>
     </div>
   );
 };

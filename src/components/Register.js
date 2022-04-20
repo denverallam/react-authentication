@@ -53,7 +53,7 @@ const Register = () => {
   At least one upper case letter,
   At least one lower case letter,
   At least one digit,
-  At least one special character,`);
+  At least one special character.`);
           // alert("Wrong password format");
         }
       } else {
@@ -95,11 +95,6 @@ const Register = () => {
         </option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
-        <option value="Non-binary">Non-binary</option>
-        <option value="Transgender">Transgender</option>
-        <option value="Intersex">Intersex</option>
-        <option value="Other">Other</option>
-        <option value="Preferred not to say">I prefer not to say</option>
       </select>
 
       <input
@@ -129,7 +124,9 @@ const Register = () => {
       <button type="submit" className="button font">
         Register
       </button>
-      <Link to="/login" className="font">Login</Link>
+      <Link to="/login" className="font">
+        Login
+      </Link>
     </form>
   );
 };
