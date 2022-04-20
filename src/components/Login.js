@@ -3,14 +3,12 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/userContext";
 
 const Login = () => {
-  const { login, user:userContext } = useContext(UserContext);
+  const { login, user: userContext } = useContext(UserContext);
 
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-
-
 
   const changeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -21,8 +19,8 @@ const Login = () => {
     login(user);
   };
 
-  if(userContext.isAuthenticated && userContext.user){
-    return <Navigate to="/" replace/>
+  if (userContext.isAuthenticated && userContext.user) {
+    return <Navigate to="/" replace />;
   }
 
   return (
@@ -44,7 +42,9 @@ const Login = () => {
         onChange={changeHandler}
         required
       />
-      <button type="submit" className="button font">Login</button>
+      <button type="submit" className="button font">
+        Login
+      </button>
       <Link to="/register" className="font">
         Register
       </Link>

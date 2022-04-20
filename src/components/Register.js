@@ -4,12 +4,12 @@ import UserContext from "../context/userContext";
 
 const Register = () => {
   const [user, setUser] = useState({
-    first_name: "",
-    last_name: "",
-    gender: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
+    first_name: null,
+    last_name: null,
+    gender: null,
+    email: null,
+    password: null,
+    password_confirmation: null,
   });
 
   const [isPasswordFormatValid, setIsPasswordFormatValid] = useState(false);
@@ -30,37 +30,57 @@ const Register = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // check if email is available
-    if (!isEmailUsed(user.email)) {
-      //check if passwords match
-      if (user.password === user.password_confirmation) {
-        // check if password format is valid
-        if (isPasswordValid(user.password)) {
-          register(user);
-          setUser({
-            first_name: "",
-            last_name: "",
-            gender: "",
-            email: "",
-            password: "",
-            password_confirmation: "",
-          });
-          alert("Successfully registered");
-          navigate("/login");
-        } else {
-          alert(`Password must contain: 
+
+    const {
+      password,
+      password_confirmation,
+      email,
+      first_name,
+      last_name,
+      gender,
+    } = user;
+
+    if (
+      password &&
+      password_confirmation &&
+      first_name &&
+      last_name &&
+      gender
+    ) {
+      // check if email is available
+      if (!isEmailUsed(email)) {
+        //check if passwords match
+        if (password === password_confirmation) {
+          // check if password format is valid
+          if (isPasswordValid(password)) {
+            register(user);
+            setUser({
+              first_name: "",
+              last_name: "",
+              gender: "",
+              email: "",
+              password: "",
+              password_confirmation: "",
+            });
+            alert("Successfully registered");
+            navigate("/login");
+          } else {
+            alert(`Password must contain: 
   At least 8 characters,
   At least one upper case letter,
   At least one lower case letter,
   At least one digit,
   At least one special character.`);
-          // alert("Wrong password format");
+            // alert("Wrong password format");
+          }
+        } else {
+          alert("Password does not match");
         }
       } else {
-        alert("Password does not match");
+        alert("Email is already used");
       }
     } else {
-      alert("Email is already used");
+      alert("Please fill out the form");
     }
   };
 
